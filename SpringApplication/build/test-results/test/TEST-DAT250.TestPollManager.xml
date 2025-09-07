@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="DAT250.TestPollManager" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-09-07T16:47:19" hostname="Annas-Air-2.lan" time="0.154">
+  <properties/>
+  <testcase name="testScenario()" classname="DAT250.TestPollManager" time="0.154"/>
+  <system-out><![CDATA[2025-09-07T18:47:18.723+02:00  INFO 17603 --- [SpringApplication] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [DAT250.TestPollManager]: TestPollManager does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-09-07T18:47:18.724+02:00  INFO 17603 --- [SpringApplication] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration DAT250.Application for test class DAT250.TestPollManager
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.5)
+
+2025-09-07T18:47:18.739+02:00  INFO 17603 --- [SpringApplication] [    Test worker] DAT250.TestPollManager                   : Starting TestPollManager using Java 21.0.8 with PID 17603 (started by annafolmann in /Users/annafolmann/Documents/Master/DAT250/Assignment/SpringApplication)
+2025-09-07T18:47:18.739+02:00  INFO 17603 --- [SpringApplication] [    Test worker] DAT250.TestPollManager                   : No active profile set, falling back to 1 default profile: "default"
+2025-09-07T18:47:18.862+02:00  INFO 17603 --- [SpringApplication] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2025-09-07T18:47:18.869+02:00  INFO 17603 --- [SpringApplication] [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-09-07T18:47:18.870+02:00  INFO 17603 --- [SpringApplication] [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-09-07T18:47:18.889+02:00  INFO 17603 --- [SpringApplication] [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-09-07T18:47:18.890+02:00  INFO 17603 --- [SpringApplication] [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 149 ms
+2025-09-07T18:47:19.026+02:00  INFO 17603 --- [SpringApplication] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 59769 (http) with context path '/'
+2025-09-07T18:47:19.028+02:00  INFO 17603 --- [SpringApplication] [    Test worker] DAT250.TestPollManager                   : Started TestPollManager in 0.302 seconds (process running for 1.681)
+2025-09-07T18:47:19.109+02:00  INFO 17603 --- [SpringApplication] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-07T18:47:19.109+02:00  INFO 17603 --- [SpringApplication] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-09-07T18:47:19.110+02:00  INFO 17603 --- [SpringApplication] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
