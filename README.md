@@ -1,8 +1,12 @@
-# DAT250-expass-2
-Rest API using springboot. 
+# React + Vite
 
-In this expass I struggled with the test part due to that I had the wrong updated versions of Gradle and Java. I had Gradle 7.4.2 and Java-21, and apparently these two versions are not compatible. Therefor I had to upgrade to Gradle 8.7 to resolve the compatibility problem. 
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-After fixing the compatibility issue, I encountered several compile-time errors related to package naming and missing or incorrect getter/setter methods in the model classes. Since the getter/setter pattern was new to me, it took some effort to understand and implement it correctly.
+Currently, two official plugins are available:
 
-Finally, with these corrections the integration test (TestPollManager) now runs succesfully and verifies the functionality of the rest API. 
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
