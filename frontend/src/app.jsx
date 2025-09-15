@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 
-const BASE = "http://localhost:8080";
+const BASE = "";
 
 export default function App() {
+  
   const [polls, setPolls] = useState([]);
   const [votes, setVotes] = useState([]); // GET /votes
   const [active, setActive] = useState(0);
@@ -35,10 +36,6 @@ export default function App() {
       setLoading(false);
     }
   }
-
-  useEffect(() => {
-    reloadAll();
-  }, []);
 
   // create poll
   async function addPoll(question, optionTexts) {
@@ -89,8 +86,9 @@ export default function App() {
     }
   }
 
-  if (loading) return <p style={{ padding: 16 }}>Laster…</p>;
-  const activePoll = polls[active] ?? null;
+  useEffect(() => {
+    reloadAll();
+  }, []);
 
   // Build counts: optionId -> number of votes
   const counts = useMemo(() => {
@@ -102,6 +100,12 @@ export default function App() {
     }
     return m;
   }, [votes]);
+
+  if (loading) {
+    return <p style={{ padding: 16 }}>Laster…</p>;
+  }
+
+  const activePoll = polls[active] ?? null;
 
   return (
     <div style={{ padding: 16, fontFamily: "system-ui, sans-serif" }}>
