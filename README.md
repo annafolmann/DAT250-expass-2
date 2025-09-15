@@ -6,5 +6,7 @@ But when I started step 4, things started to fall apart. When running backend an
 
 After doing the update and reinstallations, I managed to do the rest of the tasks. 
 
+In my repository the files are kind of messy, due to that I am not very familiar with github and therefor tried to add my files by add the files directly. I was not allowed to add all my files, and therefor understood that I needed to push my project into github. Which I managed at the end. 
+
 
 
