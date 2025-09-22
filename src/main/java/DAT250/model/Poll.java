@@ -1,30 +1,41 @@
 package DAT250.model;
 
-import DAT250.model.User;
+import jakarta.persistence.*;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Poll {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
     private String question;
     private Instant publishedAt;
     private Instant validUntil;
 
+    @ManyToOne
+    @JoinColumn(name = "created_by")
+    private User createdBy;
+
+    @OneToMany(mappedBy = "poll", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<VoteOption> options = new ArrayList<>();
 
-    private User creator;
+    public Poll() {}
 
-    public User getCreator() {
-    return creator;
-    }   
-
-    public void setCreator(User creator) {
-    this.creator = creator;
+    public Poll(String question, User createdBy) {
+        this.question = question;
+        this.createdBy = createdBy;
     }
 
-    public Poll() {}
+    public VoteOption addVoteOption(String caption) {
+        int order = options.size();
+        VoteOption option = new VoteOption(caption, order, this);
+        options.add(option);
+        return option;
+    }
+
 
     // getters and setters
     public Long getId() {
@@ -66,6 +77,10 @@ public class Poll {
     public void setOptions(List<VoteOption> options) {
         this.options = options;
     }
+
+    public User getCreatedBy() { return createdBy; }
+
+    public void setCreatedBy(User createdBy) { this.createdBy = createdBy; }
 }
 
 
