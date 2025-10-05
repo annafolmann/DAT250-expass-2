@@ -18,3 +18,7 @@ Due to I was not able to run with springboot, I inspected the database tables by
 
 My pending issue is that I did not manage to get Springboot fully working. Because of this, I could not use the H2 web console to visually inspect the tables and I had to rely only on thes test queries for verification. Also, that my REST controllers remain commented out and non-functional. 
 
+# Expass 5 
+The building and testing of Redis went smoothly and without complications. I installed and ran Redis locally, explored basic CLI commands and connected it to my Java project using the Jedis library. I made the "RedisExperiment.java" file and worked with different daat types to store user and poll data. I also implemented a simple cache (TTL) feature to show how fast data storage and retrievel can be using Redis. 
+
+
