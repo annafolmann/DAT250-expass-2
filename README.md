@@ -21,4 +21,11 @@ My pending issue is that I did not manage to get Springboot fully working. Becau
 # Expass 5 
 The building and testing of Redis went smoothly and without complications. I installed and ran Redis locally, explored basic CLI commands and connected it to my Java project using the Jedis library. I made the "RedisExperiment.java" file and worked with different daat types to store user and poll data. I also implemented a simple cache (TTL) feature to show how fast data storage and retrievel can be using Redis. 
 
+# Expass 6 
+Since I still have issues with Spring Boot, the system was implemented as a standalone Java application to simplify the running and avoid framework dependencies. 
+
+I chose Redis as the message broker since it is lightweight setup and has a easy to use Publish/subscribe mechanism. Each poll is linked to a redis channel with the same name, and when a new poll is created, a corresponding channel is opened automatically. I also tried publishing a message manually, and succesfully sent a "vote" that the application receives and uses to update the poll results. 
+
+Other than the Spring Boot issues - this project went smoothly. 
+
 
