@@ -1,49 +1,31 @@
 package DAT250;
 
-import redis.clients.jedis.UnifiedJedis;
-import java.util.Map;
+import DAT250.manager.PollManager;
+import DAT250.model.Poll;
+import DAT250.model.User;
 
 public class RedisExperiment {
 
-    public static void main(String[] args) {
-        try (UnifiedJedis jedis = new UnifiedJedis("redis://localhost:6379")) {
+    public static void main(String[] args) throws InterruptedException {
+        PollManager pollManager = new PollManager();
+        RedisSubscriber subscriber = new RedisSubscriber(pollManager);
+        RedisPublisher publisher = new RedisPublisher();
 
-            System.out.println("✅ Connected to Redis!");
+        User dummyUser = new User(); // just a placeholder user
 
-            // basic key value
-            jedis.set("user", "bob");
-            System.out.println("user = " + jedis.get("user"));
+        // create a new poll
+        Poll poll = pollManager.createPoll("BestCoffee", dummyUser);
 
-            // set example: logged in users
-            jedis.del("logged_in_users"); // clear old data
-            jedis.sadd("logged_in_users", "alice", "bob");
-            jedis.srem("logged_in_users", "alice");
-            jedis.sadd("logged_in_users", "eve");
-            System.out.println("Logged in users: " + jedis.smembers("logged_in_users"));
+        // subscribe to that poll’s topic in Redis
+        subscriber.subscribeToPoll(poll.getQuestion());
 
-            // hash example: poll data 
-            String pollKey = "poll:pineapple_pizza";
-            jedis.del(pollKey);
-            jedis.hset(pollKey, Map.of(
-                "yes", "269",
-                "no", "268",
-                "neutral", "42"
-            ));
-            jedis.hincrBy(pollKey, "yes", 1); // one new "yes" vote
-            System.out.println("Poll data: " + jedis.hgetAll(pollKey));
+        // simulate some votes being published
+        Thread.sleep(1000); // small delay so subscriber connects first
+        publisher.publishVote(poll.getQuestion(), "Espresso");
+        publisher.publishVote(poll.getQuestion(), "Latte");
+        publisher.publishVote(poll.getQuestion(), "Espresso");
 
-            // cache example
-            String cacheKey = "poll_cache:pineapple_pizza";
-            if (jedis.exists(cacheKey)) {
-                System.out.println("Cache hit: " + jedis.hgetAll(cacheKey));
-            } else {
-                // simulate slow DB fetch
-                Map<String, String> poll = Map.of("yes", "270", "no", "268", "neutral", "42");
-                jedis.hset(cacheKey, poll);
-                jedis.expire(cacheKey, 30); // cache expires in 30 seconds
-                System.out.println("Cache miss → data loaded into cache: " + poll);
-            }
-        }
+        Thread.sleep(2000);
+        System.out.println("✅ Experiment finished for poll: " + poll.getQuestion());
     }
 }
-

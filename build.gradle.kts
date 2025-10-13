@@ -30,6 +30,8 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.11.3")
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    implementation("redis.clients:jedis:5.1.0")
+
 }
 
 application {
