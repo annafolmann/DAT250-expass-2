@@ -28,4 +28,12 @@ I chose Redis as the message broker since it is lightweight setup and has a easy
 
 Other than the Spring Boot issues - this project went smoothly. 
 
+# Expass 7 
+Since I have had some springboot issues during all the assignments, I started by making a very simplified working version that only shows that the PollApp and Docker works together and are able to show at localhost:8080. 
+
+I also verified that it worked locally before continuing with the Docker setup. I then proceeded to implement the .dockerignore and Dockerfile, and used a multi-stage build. The Dockerfile made sure that the app runs as a non-root user instead of the default root. Finally, I verified that the Docker container runs correctly in the background and serves the expected response.
+
+
+
+
 
