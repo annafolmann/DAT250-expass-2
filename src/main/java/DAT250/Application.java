@@ -1,22 +1,23 @@
+// src/main/java/DAT250/Application.java
 package DAT250;
 
-// import org.springframework.boot.SpringApplication;
-// import org.springframework.boot.autoconfigure.SpringBootApplication;
-// import org.springframework.web.bind.annotation.GetMapping;
-// import org.springframework.web.bind.annotation.RequestParam;
-// import org.springframework.web.bind.annotation.RestController;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-// @SpringBootApplication
-// @RestController
+@SpringBootApplication
 public class Application {
-
     public static void main(String[] args) {
-        // SpringApplication.run(Application.class, args);
-        System.out.println("Running JPA Assignment 4 - Spring Boot disabled.");
+        SpringApplication.run(Application.class, args);
     }
-
-    // @GetMapping("/hello")
-    // public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
-    //     return String.format("Hello %s!", name);
-    // }
 }
+
+@RestController
+class HelloController {
+    @GetMapping("/")
+    public String hello() {
+        return "Hello from PollApp (Docker test)";
+    }
+}
+

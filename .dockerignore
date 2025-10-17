@@ -1,0 +1,11 @@
+# Ignore files and folders not needed in Docker
+.gradle
+build
+bin
+.idea
+.vscode
+*.iml
+out
+node_modules
+.DS_Store
+.git

@@ -1,8 +1,7 @@
 plugins {
-    java
-    application
-    // id("org.springframework.boot") version "3.5.5"
-    // id("io.spring.dependency-management") version "1.1.7"
+    id("org.springframework.boot") version "3.2.4"
+    id("io.spring.dependency-management") version "1.1.4"
+    id("java")
 }
 
 group = "com.example"
@@ -20,6 +19,10 @@ repositories {
 }
 
 dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+    // Optional: you can keep these if you want to use DB/Redis later
     implementation("org.hibernate.orm:hibernate-core:7.1.1.Final")
     implementation("jakarta.persistence:jakarta.persistence-api:3.2.0")
     implementation("com.h2database:h2:2.3.232")
@@ -30,15 +33,14 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.11.3")
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    implementation("redis.clients:jedis:5.1.0")
-
 }
 
-application {
-    mainClass.set("DAT250.RedisExperiment")
+springBoot {
+    mainClass.set("DAT250.Application")
 }
 
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+
 
